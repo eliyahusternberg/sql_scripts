@@ -30,7 +30,7 @@ primary key (`id`),
 `teacher_id` int not null,
 foreign key (`teacher_id`) references `teachers` (`id`),
 `students_id` int not null,
-foreign key (`students_id`) references `students` (`id`), 
+foreign key (`students_id`) references `students` (`id`) 
 );
 
 
