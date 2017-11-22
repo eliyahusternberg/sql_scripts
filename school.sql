@@ -19,19 +19,11 @@ create table `students` (
 `name` varchar(100) not null, 
 `grade` int ,
 `seat_location` varchar(50) ,
-primary key (`id`)
-);
-
-
-create table `teachers_students`(
-`id` int auto_increment not null,
-`class` varchar(20) ,
+`teacher_id`int,
 primary key (`id`),
-`teacher_id` int not null,
-foreign key (`teacher_id`) references `teachers` (`id`),
-`students_id` int not null,
-foreign key (`students_id`) references `students` (`id`) 
+foreign key (`teacher_id`)
 );
+
 
 
 INSERT INTO `teachers` 
