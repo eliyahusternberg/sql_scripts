@@ -21,8 +21,10 @@ create table `students` (
 `seat_location` varchar(50) ,
 `teacher_id`int,
 primary key (`id`),
-foreign key (`teacher_id`)
+foreign key (`teacher_id`) references teachers (`id`)
 );
+
+
 
 
 
@@ -38,147 +40,129 @@ VALUES
 ("Rabbi silver", "13 forest street", "718-848-9014", "2000");
 
 
-INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
-VALUES 
-("binyamin", "80", "c-3");
+
+
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("chaim", "70", "c-5");
+("binyamin", "80", "c-3", 1);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("dovy", "65", "b-3");
+("chaim", "70", "c-5", 1);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("pinchas", "80", "c-1");
+("dovy", "65", "b-3", 1);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("velvy", "70", "c-4");
+("pinchas", "80", "c-1", 1);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("eliyahu", "90", "b-1");
+("velvy", "70", "c-4", 1);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("shmarel", "75", "a-1");
+("eliyahu", "90", "b-1", 1);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("refael", "68", "a-2");
+("shmarel", "75", "a-1", 1);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("gedalya", "85", "a-3");
+("refael", "68", "a-2", 1);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("avromi", "75", "a-6");
+("gedalya", "85", "a-3", 1);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("yankel", "80", "c-3");
+("avromi", "75", "a-6", 1);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("mordechai", "70", "c-1");
+("yankel", "80", "c-3", 1);
+
+
+
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("binyamin", "80", "c-2");
+("mordechai", "70", "c-1", 2);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("baruch", "90", "b-3");
+("binyamin", "80", "c-2", 2);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("yehuda", "75", "a-3");
+("baruch", "90", "b-3", 2);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("zalman", "68", "a-6");
+("yehuda", "75", "a-3", 2);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("chaim", "90", "a-4");
+("zalman", "68", "a-6", 2);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("moshe", "68", "c-3");
+("chaim", "90", "a-4", 2);
 
 INSERT INTO `students` 
-( `name`, `grade`, `seat_location`)
+( `name`, `grade`, `seat_location`, `teacher_id`)
 VALUES 
-("ephraim", "78", "b-4");
+("moshe", "68", "c-3", 2);
+
+INSERT INTO `students` 
+( `name`, `grade`, `seat_location`, `teacher_id`)
+VALUES 
+("ephraim", "78", "b-4", 2);
 
 
+/*```
+select * from <table>
+inner join <table that you want to join>
+on <id of the first table> = <id of 2nd table>;
+```
 
--- Chumash Shiur
-insert into `teachers_students` 
-(`students_id`,`teacher_id`,`class`) 
-values (1,1,"Chumash");
-
-insert into `teachers_students` 
-(`students_id`,`teacher_id`,`class`) 
-values (5,1,"Chumash");
-
-insert into `teachers_students` 
-(`students_id`,`teacher_id`,`class`) 
-values (19,1,"Chumash");
-
-insert into `teachers_students` 
-(`students_id`,`teacher_id`,`class`) 
-values (10,1,"Chumash");
-
-insert into `teachers_students` 
-(`students_id`,`teacher_id`,`class`) 
-values (11,1,"Chumash");
+```
+select * from <first table>
+inner join <table that you want to join>
+on <first table>.<foreign key> = <second table>.<primary key>;
+``*/
 
 
+select * from students;
+select * from teachers;
 
 
--- Tosfos Shiur
-insert into `teachers_students` 
-(`students_id`,`teacher_id`,`class`) 
-values (1,2,"Tosfos");
+select students.name,teachers.name from students 
+inner join teachers
+on students.teacher_id = teachers.id;
 
-insert into `teachers_students` 
-(`students_id`,`teacher_id`,`class`) 
-values (5,2,"Tosfos");
-
-insert into `teachers_students` 
-(`students_id`,`teacher_id`,`class`) 
-values (19,2,"Tosfos");
-
-insert into `teachers_students` 
-(`students_id`,`teacher_id`,`class`) 
-values (10,2,"Tosfos");
-
-insert into `teachers_students` 
-(`students_id`,`teacher_id`,`class`) 
-values (11,2,"Tosfos");
 
 
 
